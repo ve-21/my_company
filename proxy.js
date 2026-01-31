@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-export function middleware(request) {
+export function proxy(request) {
     const { pathname } = request.nextUrl;
 
     // 1. Skip middleware for static files, api routes (except those we want protected), and auth pages
