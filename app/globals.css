@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+:root {
+  /* Lushanth-inspired Palette */
+  --primary: #4F6CF6;
+  /* Electric Blue */
+  --primary-dark: #3a54d6;
+  --background: #111111;
+  /* Deep Navy/Black */
+  --surface: #1A1F36;
+  /* Slightly lighter for cards */
+  --foreground: #FFFFFF;
+  --text-muted: #A1A1A1;
+
+  --radius-lg: 32px;
+  /* Large rounded corners */
+  --radius-pill: 9999px;
+
+  /* Luxury Effects */
+  --soft-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(17, 17, 17, 0.85);
+  --grid-url: url('/grid-pattern.svg');
+}
+
+@theme {
+  --color-primary: var(--primary);
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--text-muted);
+
+  /* Font Stack similar to Plus Jakarta Sans / Inter */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --shadow-luxury: var(--soft-shadow);
+  --radius-lg: var(--radius-lg);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+@utility glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+}
+
+@utility luxury-card {
+  background-color: var(--surface);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--soft-shadow);
+  border-radius: 30px 4px 30px 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@utility btn-primary {
+  background-color: var(--primary);
+  color: white;
+  border-radius: var(--radius-pill);
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  box-shadow: 0 4px 20px rgba(79, 108, 246, 0.4);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(79, 108, 246, 0.6);
+}
+
+/* Typography Enhancements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+
+p {
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar Hiding Utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
