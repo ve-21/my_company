@@ -3,6 +3,12 @@ import { NextResponse } from 'next/server';
 export async function POST(request) {
     const { username, password } = await request.json();
 
+    console.log('Admin Auth Attempt:', {
+        receivedUsername: username,
+        expectedAdmin: process.env.ADMIN_USERNAME,
+        envStatus: process.env.ADMIN_PASSWORD ? 'Password Set' : 'Password Missing'
+    });
+
     if (
         username === process.env.ADMIN_USERNAME &&
         password === process.env.ADMIN_PASSWORD

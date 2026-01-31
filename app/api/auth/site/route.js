@@ -3,6 +3,11 @@ import { NextResponse } from 'next/server';
 export async function POST(request) {
     const { username, password } = await request.json();
 
+    console.log('Site Auth Attempt:', {
+        receivedUsername: username,
+        expectedPassword: process.env.SITE_PASSWORD ? 'SET' : 'MISSING'
+    });
+
     if (username === 'client' && password === process.env.SITE_PASSWORD) {
         const response = NextResponse.json({ success: true });
 
